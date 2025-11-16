@@ -21,6 +21,8 @@ print("*****************"+"\n")
 print("***ESERCIZIO 3***")
 condition_rock = df['Genre'].str.contains('rock', case=False)
 print(df.loc[condition_rock])
+#oppure 
+print(df.loc[df['Genre'].str.contains('rock', case=False)])
 print("*****************"+"\n")
 
 ## Esercizio 4: Trova gli album pubblicati dopo il 1980
@@ -29,6 +31,8 @@ print("*****************"+"\n")
 print("***ESERCIZIO 4***")
 condition_album = df['Released'] > 1980
 print(df.loc[condition_album, 'Artist':'Released'])
+#oppure 
+print(df.loc[df['Released'] > 1980, 'Artist':'Released'])
 print("*****************"+"\n")
 
 ### Esercizio 5: Calcola la media delle valutazioni
@@ -45,11 +49,10 @@ print("*****************"+"\n")
 print("***ESERCIZIO 6***")
 minimo = df['Length'].min()
 massimo = df['Length'].max()
-album_minimo = df.loc[df['Length'] == minimo]
-album_massimo = df.loc[df['Length'] == massimo]
-print(album_minimo)
-print(album_massimo)
+print(df.loc[df['Length'] == minimo])
+print(df.loc[df['Length'] == massimo])
 print("*****************"+"\n")
+
  
 ### NON FARE
 ### Esercizio 7: Elenco generi unici
@@ -63,7 +66,7 @@ print("*****************"+"\n")
 ### Task: Aggiungi una nuova colonna 'Sales_Difference' che mostri la differenza tra 'Claimed Sales' e 'Music Recording Sales'
 ### Soluzione:
 print("***ESERCIZIO 8***")
-df['Sales_Difference'] = (df['Claimed Sales (millions)']) - (df['Music Recording Sales (millions)'])
+df['Sales_Difference'] = df['Claimed Sales (millions)'] - df['Music Recording Sales (millions)']
 print(df)
 print("*****************"+"\n")
   
