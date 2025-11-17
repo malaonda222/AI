@@ -137,5 +137,14 @@ album_condition = df.loc[cond_max_rec & cond_not_soundtrack]
 print(album_condition)
 #oppure
 max_differenza = df["Music Recording Sales (millions)"].max()
-print(df.loc[df(['Music Recording Sales (millions)'] == max_differenza) & df['Soundtrack'] != 'Y'])
+print(df.loc[(df['Music Recording Sales (millions)'] == max_differenza) & (df['Soundtrack'] != 'Y')])
 print("******************"+"\n")
+
+
+
+print(df.iloc[3:6, 0:3])
+print(df.loc[3:5, 'Artist':'Released'])
+print("\n")
+df_new = df[['Artist','Soundtrack']]
+print(df_new.loc[3:5])
+print(df_new.iloc[3:6])
