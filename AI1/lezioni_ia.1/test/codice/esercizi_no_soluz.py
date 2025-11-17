@@ -76,6 +76,8 @@ print("*****************"+"\n")
 print("***ESERCIZIO 9***")
 condition_y = df['Soundtrack'] == 'Y'
 print(df.loc[condition_y])
+#oppure
+print(df.loc[df['Soundtrack'] == 'Y'])
 print("*****************"+"\n")
 
 ### Esercizio 10: Salva i dati filtrati in un file CSV
@@ -84,6 +86,9 @@ print("*****************"+"\n")
 print("***ESERCIZIO 10***")
 value_condition = df['Rating'] >= 9 
 album_rating = df.loc[condition_y]
+album_rating.to_csv('../dati/rating_9_or_higher.csv', index = False)
+#oppure 
+album_rating = df.loc[df['Rating'] >= 9]
 album_rating.to_csv('../dati/rating_9_or_higher.csv', index = False)
 print("******************"+"\n")
 
@@ -110,6 +115,8 @@ print("******************"+"\n")
 print("***ESERCIZIO 13***")
 condition_rock_pop = df['Genre'].str.contains('rock', case=False) & df['Genre'].str.contains('pop', case=False)
 print(df.loc[condition_rock_pop])
+#oppure 
+print(df.loc[(df["Genre"].str.contains('rock', case=False)) & (df['Genre'].str.contains('pop', case=False))])
 print("******************"+"\n")
 
 ### NON FARE    
@@ -128,4 +135,7 @@ cond_max_rec = df['Music Recording Sales (millions)'] == df["Music Recording Sal
 cond_not_soundtrack = df['Soundtrack'] != 'Y'
 album_condition = df.loc[cond_max_rec & cond_not_soundtrack]
 print(album_condition)
+#oppure
+max_differenza = df["Music Recording Sales (millions)"].max()
+print(df.loc[df(['Music Recording Sales (millions)'] == max_differenza) & df['Soundtrack'] != 'Y'])
 print("******************"+"\n")
