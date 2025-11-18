@@ -101,15 +101,15 @@ class DataPipeline:
         db_df = self.load_from_database()
         print("   -Letti dati da una tabella su db")
         print(db_df.dtypes)
-        return pd.DataFrame()
+        # return pd.DataFrame()
         # # Pulizia dati
-        # clean_df = self.clean_data(db_df)
-        # print("   -Pulizia dati completata e file pulito salvato")
+        clean_df = self.clean_data(db_df)
+        print("   -Pulizia dati completata e file pulito salvato")
         # # Visualizza risultati
-        # self.visualize(clean_df)
-        # print("   -Analisi e visualizzazione dati terminate")          
-        # self.data = clean_df
-        # return clean_df
+        self.visualize(clean_df)
+        print("   -Analisi e visualizzazione dati terminate")          
+        self.data = clean_df
+        return clean_df
         
 if __name__ == "__main__":
     config = DataSourceConfig()
