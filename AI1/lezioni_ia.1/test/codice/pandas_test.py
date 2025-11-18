@@ -22,11 +22,7 @@ dict =     {
 
     }
  
-# df = pd.DataFrame(dict)
-# print("Un dataframe creato leggendo un dizionario Python")
-# print(df)
-# print("\n")
-
-df = pd.read_csv("../dati/titanic.csv")
-print("Un dataframe creato da un file csv")
-print(df.head())
+df = pd.DataFrame(dict)
+print("Un dataframe creato leggendo un dizionario Python")
+print(df)
+print("\n")

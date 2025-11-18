@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 
 # Preparazione
-data_path = "../dati/autos/auto_mini.csv"
-clean_data_path = "../dati/autos/auto_clean.csv"
+data_path = "../../dati/autos/auto_mini.csv"
+clean_data_path = "../../dati/autos/auto_clean.csv"
 
 # Leggi un file locale
 df = pd.read_csv(data_path)
@@ -33,7 +33,8 @@ df["normalized-losses"] = df["normalized-losses"].replace(np.nan, avg)
 
 # Max frequenza al posto di NaNs
 print(df['num-of-doors'].value_counts())
-df["num-of-doors"].replace(np.nan, df['num-of-doors'].value_counts().idxmax(), inplace = True)
+# df["num-of-doors"].replace(np.nan, df['num-of-doors'].value_counts().idxmax(), inplace = True)
+df["num-of-doors"] = df["num-of-doors"].replace(np.nan, df['num-of-doors'].value_counts().idxmax())
 
 # Eliminazione righe dove NaNs
 df.dropna(subset=["price"], axis=0, inplace = True)
@@ -43,13 +44,13 @@ print("\n")
 
 # print(df.dtypes)
    
-# # Conversione tipi di dato  
-# df = df.convert_dtypes()
-# print(df.dtypes)
-# print("\n")
-# df[["normalized-losses"]] = df[["normalized-losses"]].astype("int")
-# df[["price"]] = df[["price"]].astype("float")
-# print(df.dtypes)
+# Conversione tipi di dato  
+df = df.convert_dtypes()
+print(df.dtypes)
+print("\n")
+df[["normalized-losses"]] = df[["normalized-losses"]].astype("int")
+df[["price"]] = df[["price"]].astype("float")
+print(df.dtypes)
 
 # Normalizzazione dei dati
 df['length'] = (df['length']-df['length'].min())/(df['length'].max() - df['length'].min())
