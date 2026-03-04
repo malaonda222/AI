@@ -69,5 +69,5 @@ print("\n")
 print(df.sort_values('price', ascending=True))
 
 # # Scrivi il dataset pulito su file CSV
-# df.to_csv(clean_data_path)
-# print("\nAuto DataFrame ""pulito"" salvato come file CSV (../dati/autos/auto_clean.csv)")
+df.to_csv(clean_data_path)
+print("\nAuto DataFrame ""pulito"" salvato come file CSV (../dati/autos/auto_clean.csv)")
